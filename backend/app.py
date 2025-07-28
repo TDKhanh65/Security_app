@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from backend.commands import caesar, xor, polyalphabetic, opt, hoanvi
 import base64
-import re
 
 app = Flask(__name__, static_folder='../frontend')
 CORS(app)
