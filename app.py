@@ -4,7 +4,7 @@ from commands import caesar, xor, polyalphabetic, opt, hoanvi
 import base64
 
 
-app = Flask(__name__, static_folder='../frontend')
+app = Flask(__name__, static_folder='./frontend')
 CORS(app)
 
 @app.route('/')
