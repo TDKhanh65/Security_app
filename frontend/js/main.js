@@ -16,7 +16,7 @@ async function encrypt() {
     try {
       body.thu_tu = JSON.parse(key);
     } catch {
-      alert('❌ Khóa hoán vị phải là mảng JSON!');
+      alert('❌ Khóa hoán vị phải là mảng JSON!, vd: [1, 2 , 3, ...]');
       return;
     }
   }
