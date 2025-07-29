@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from commands import caesar, xor, polyalphabetic, opt, hoanvi
 import base64
-import re
+
 
 app = Flask(__name__, static_folder='../frontend')
 CORS(app)
@@ -95,5 +95,7 @@ def decrypt(method):
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5500)
-    print("💻 Flask đang khởi chạy tại http://127.0.0.1:5500")
+    import os
+    port = int(os.environ.get('PORT', 5500))
+    app.run(host='0.0.0.0', port=port)
+
