@@ -96,6 +96,6 @@ def decrypt(method):
 
 if __name__ == '__main__':
     import os
-    port = int(os.environ.get('PORT', 5500))
+    port = int(os.environ.get('PORT', 5501))
     app.run(host='0.0.0.0', port=port)
 
