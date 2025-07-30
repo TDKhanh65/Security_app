@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from commands import caesar, xor, polyalphabetic, opt, hoanvi
 from commands.thongke import decrypt
+from collections import Counter
 import base64
 
 
