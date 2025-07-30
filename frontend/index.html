@@ -25,7 +25,7 @@
             <option value="base64">Base64</option>
             <option value="hoanvi">Hoán vị</option>
             <option value="polyalphabetic">Polyalphabetic</option>
-            <option id="optButton" value="opt">OTP</option>
+            <option value="opt">OTP</option>
             </select>
             <input type="text" id="key-encrypt" placeholder="Nhập khóa mã hóa (nếu có)">
             <button onclick="encrypt()" class="btn btn-success w-100">🔁 Mã hóa</button>
@@ -60,7 +60,7 @@
   document.getElementById('method-encrypt').addEventListener('change', function () {
     const selectedValue = this.value;
     
-    if (selectedValue === "OTP") {
+    if (selectedValue === "opt") {
       alert("✅ Bạn đã chọn phương thức OPT. Khóa sẽ được thay đổi sau 10 giây...");
       
       setTimeout(function () {
