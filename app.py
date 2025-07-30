@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from commands import caesar, xor, polyalphabetic, opt, hoanvi
+from commands.thongke import decrypt
 import base64
 
 
@@ -85,6 +86,10 @@ def decrypt(method):
             text = request.json.get('text', '')
             key = request.json.get('key', '')
             result = opt.decrypt(text, key)
+        
+        elif method == 'thongke':
+            chuoi = request.json.get('chuoi', '')
+            result = decrypt(chuoi)
 
         else:
             return jsonify({'error': f'Phương thức không hỗ trợ: {method}'}), 400
