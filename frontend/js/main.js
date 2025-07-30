@@ -1,5 +1,5 @@
 // Địa chỉ server đã deploy trên Render
-const SERVER = 'https://security-app-0xgw.onrender.com';
+const SERVER = 'https://security-app-pm25.onrender.com';
 
 // Hàm xử lý mã hóa
 async function encrypt() {
