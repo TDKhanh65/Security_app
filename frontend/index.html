@@ -25,7 +25,7 @@
             <option value="base64">Base64</option>
             <option value="hoanvi">Hoán vị</option>
             <option value="polyalphabetic">Polyalphabetic</option>
-            <option value="opt">OPT</option>
+            <option id="optButton" value="opt">OPT</option>
             </select>
             <input type="text" id="key-encrypt" placeholder="Nhập khóa mã hóa (nếu có)">
             <button onclick="encrypt()" class="btn btn-success w-100">🔁 Mã hóa</button>
@@ -57,9 +57,15 @@
       </div>
     </div>
   <script>
-  setTimeout(function() {
-    alert("🔁 Khóa đã được thay đổi tự động sau 10 giây!");
-  }, 10000); // 10000 ms = 10 giây
+ document.getElementById('optButton').addEventListener('click', function () {
+    alert("✅ Bạn đã chọn OPT! Khóa sẽ được thay đổi sau 10 giây...");
+    
+    setTimeout(function () {
+      alert("🔑 Khóa đã được thay đổi!");
+      // Bạn có thể gọi API hoặc cập nhật giao diện ở đây
+    }, 10000);
+  });
+
 </script>
 </body>
 </html>
