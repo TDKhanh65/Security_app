@@ -25,7 +25,7 @@
             <option value="base64">Base64</option>
             <option value="hoanvi">Hoán vị</option>
             <option value="polyalphabetic">Polyalphabetic</option>
-            <option id="optButton" value="opt">OPT</option>
+            <option id="optButton" value="opt">OTP</option>
             </select>
             <input type="text" id="key-encrypt" placeholder="Nhập khóa mã hóa (nếu có)">
             <button onclick="encrypt()" class="btn btn-success w-100">🔁 Mã hóa</button>
@@ -45,7 +45,7 @@
                 <option value="base64">Base64</option>
                 <option value="hoanvi">Hoán vị</option>
                 <option value="polyalphabetic">Polyalphabetic</option>
-                <option value="opt">OPT</option>
+                <option value="opt">OTP</option>
                 <option value="thongke">Thống kê</option>
                 </select>
                 <input type="text" id="key-decrypt" placeholder="Nhập khóa giải mã (nếu có)">
@@ -57,13 +57,17 @@
       </div>
     </div>
   <script>
- document.getElementById('optButton').addEventListener('click', function () {
-    alert("✅ Bạn đã chọn OPT! Khóa sẽ được thay đổi sau 10 giây...");
+  document.getElementById('method-encrypt').addEventListener('change', function () {
+    const selectedValue = this.value;
     
-    setTimeout(function () {
-      alert("🔑 Khóa đã được thay đổi!");
-      // Bạn có thể gọi API hoặc cập nhật giao diện ở đây
-    }, 10000);
+    if (selectedValue === "OTP") {
+      alert("✅ Bạn đã chọn phương thức OPT. Khóa sẽ được thay đổi sau 10 giây...");
+      
+      setTimeout(function () {
+        alert("🔐 Khóa đã được thay đổi thành công!");
+        // Gọi API hoặc hành động tùy theo logic backend
+      }, 10000);
+    }
   });
 
 </script>
