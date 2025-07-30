@@ -1,3 +1,10 @@
+import time
+import random
+import string
+
+def generate_new_key(length):
+    return ''.join(random.choice(string.ascii_uppercase) for _ in range(length))
+
 def encrypt(plaintext, key):
     plaintext = plaintext.upper()
     key = key.upper()
@@ -26,16 +33,27 @@ def main():
         print("❌ Văn bản gốc chỉ chứa chữ cái A-Z.")
         return
 
-    key = input("🔑 Nhập khóa: ").strip().upper()
+    key = input("🔑 Nhập khóa ban đầu: ").strip().upper()
     if not key.isalpha() or len(key) != len(plaintext):
         print("❌ Khóa phải chứa chữ cái A-Z và có độ dài bằng văn bản gốc.")
         return
 
     cipher = encrypt(plaintext, key)
-    print("\n📄 Mã hóa:", cipher)
+    print("\n📄 Mã hóa với khóa ban đầu:", cipher)
 
-    decrypted = decrypt(cipher, key)
-    print("🔓 Giải mã lại:", decrypted)
+    # Đợi 10 giây rồi thay đổi khóa
+    print("\n🕒 Đang chờ 10 giây để thay đổi khóa...")
+    time.sleep(10)
+
+    new_key = generate_new_key(len(plaintext))
+    print(f"\n🔁 Khóa mới được tạo: {new_key}")
+
+    new_cipher = encrypt(plaintext, new_key)
+    print("📄 Mã hóa với khóa mới:", new_cipher)
+
+    decrypted = decrypt(new_cipher, new_key)
+    print("🔓 Giải mã với khóa mới:", decrypted)
+
 
 if __name__ == "__main__":
     main()
