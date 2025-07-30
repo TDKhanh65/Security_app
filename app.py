@@ -89,7 +89,8 @@ def decrypt(method):
         
         elif method == 'thongke':
             chuoi = request.json.get('chuoi', '')
-            result = decrypt(chuoi)
+            ket_qua = decrypt(chuoi)
+            return jsonify({'thongke': ket_qua})
 
         else:
             return jsonify({'error': f'Phương thức không hỗ trợ: {method}'}), 400
