@@ -89,9 +89,11 @@ def decrypt(method):
             result = opt.decrypt(text, key)
         
         elif method == 'thongke':
-            chuoi = request.json.get('chuoi', '')
-            ket_qua = decrypt(chuoi)
-            return jsonify({'thongke': ket_qua})
+            chuoi = request.json.get("chuoi", "")
+            chuoi = chuoi.replace(" ", "")
+            thong_ke = Counter(chuoi)
+            ket_qua = thong_ke.most_common()
+            return jsonify({"ket_qua": ket_qua})
 
         else:
             return jsonify({'error': f'Phương thức không hỗ trợ: {method}'}), 400
